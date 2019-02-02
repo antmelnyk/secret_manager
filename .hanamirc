@@ -1,0 +1,3 @@
+project=secret_manager
+test=rspec
+template=erb
