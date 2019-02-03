@@ -6,7 +6,7 @@ RSpec.describe Web::Controllers::Secrets::Index, type: :action do
     before do
         repository.clear
 
-        @secret = repository.create(login: 'Admin', secret: Encryptor.generate('secret'))
+        @secret = repository.create(login: 'Admin', secret: Encryptor.encrypt('secret'))
     end
 
     it 'is successful' do

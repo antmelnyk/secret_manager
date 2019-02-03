@@ -1,18 +1,18 @@
-require 'bcrypt'
-
 class Encryptor
-    attr_reader :value
-    DEFAULT_COST = BCrypt::Engine.cost
 
-    def self.generate(input, cost: DEFAULT_COST)
-        BCrypt::Password.create(input, cost: cost)
+    def self.encrypt(data)
+        cipher = OpenSSL::Cipher::AES.new(192, :CBC).encrypt
+        cipher.key = ENV['ENCRYPTOR_KEY']
+        s = cipher.update(data) + cipher.final
+        s.unpack('H*')[0].upcase
     end
 
-    def initialize(encrypted_password)
-        @value = BCrypt::Password.new(encrypted_password)
+    def self.decrypt(encrypted)
+        cipher = OpenSSL::Cipher::AES.new(192, :CBC).decrypt
+        cipher.key = ENV['ENCRYPTOR_KEY']
+        s = [encrypted].pack("H*").unpack("C*").pack("c*")
+
+        cipher.update(s) + cipher.final
     end
 
-    def ==(other)
-        @value == other
-    end
 end

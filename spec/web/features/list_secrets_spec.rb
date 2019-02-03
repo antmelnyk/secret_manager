@@ -5,8 +5,8 @@ RSpec.describe 'List secrets' do
     before do
         repository.clear
 
-        repository.create(login: 'Admin', secret: Encryptor.generate('secret'))
-        repository.create(login: 'Superadmin', secret: Encryptor.generate('secret2'))
+        repository.create(login: 'Admin', secret: Encryptor.encrypt('secret'))
+        repository.create(login: 'Superadmin', secret: Encryptor.encrypt('secret2'))
     end
 
     it 'displays secrets on the page' do

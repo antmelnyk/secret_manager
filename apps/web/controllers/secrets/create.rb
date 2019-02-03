@@ -1,5 +1,3 @@
-require 'bcrypt'
-
 module Web
     module Controllers
         module Secrets
@@ -7,7 +5,7 @@ module Web
                 include Web::Action
 
                 def call(params)
-                    encrypted_secret = Password.generate(params[:secret])
+                    encrypted_secret = Encryptor.encrypt(params[:secret])
 
                     SecretRepository.new.create(params[:login], encrypted_secret)
                 end
