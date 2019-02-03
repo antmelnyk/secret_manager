@@ -1,12 +1,15 @@
 module Web
-  module Controllers
-    module Secrets
-      class Index
-        include Web::Action
+    module Controllers
+        module Secrets
+            class Index
+                include Web::Action
 
-        def call(params)
+                expose :secrets
+
+				def call(params)
+					@secrets = SecretRepository.new.all
+				end
+            end
         end
-      end
     end
-  end
 end

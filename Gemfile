@@ -5,6 +5,7 @@ gem 'hanami',       '~> 1.3'
 gem 'hanami-model', '~> 1.3'
 
 gem 'pg'
+gem 'bcrypt'
 
 group :development do
   # Code reloading
@@ -13,6 +14,7 @@ group :development do
   gem 'hanami-webconsole'
   gem 'sass'
   gem 'babel-transpiler'
+  gem 'irb'
 end
 
 group :test, :development do
