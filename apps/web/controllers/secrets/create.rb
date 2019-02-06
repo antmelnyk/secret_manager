@@ -4,11 +4,28 @@ module Web
       class Create
         include Web::Action
 
-        def call(params)
-          new_secret = params[:secret]
-          SecretRepository.new.create({ login: new_secret[:login], secret: Encryptor.encrypt(new_secret[:secret]) })
+        params do
+          required(:secret).schema do
+            required(:login).filled(:str?)
+            required(:secret).filled(:str?)
+          end
+        end
 
-          redirect_to '/secrets'
+        def call(params)
+          if params.valid?
+            SecretRepository.new.create(prepared_params[:secret])
+
+            redirect_to routes.secrets_path
+          else
+            self.status = 422
+          end
+        end
+
+        private
+        
+        def prepared_params
+          params[:secret][:secret] = Encryptor.encrypt(params[:secret][:secret])
+          params
         end
       end
     end

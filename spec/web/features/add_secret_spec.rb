@@ -19,4 +19,18 @@ RSpec.describe 'Add a secret' do
     expect(page).to have_content('New Secret')
     expect(SecretRepository.new.last.secret).to eq(Encryptor.encrypt('secret'))
   end
+
+  it 'displays list of errors when params contains errors' do
+    visit '/secrets/new'
+
+    within 'form' do
+      click_button 'Add'
+    end
+
+    expect(current_path).to eq('/secrets')
+
+    expect(page).to have_content('There was a problem with your submission')
+    expect(page).to have_content('Login must be filled')
+    expect(page).to have_content('Secret must be filled')
+  end
 end
