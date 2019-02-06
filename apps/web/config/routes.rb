@@ -6,3 +6,5 @@
 
 root to: 'home#index'
 get '/secrets', to: 'secrets#index'
+get '/secrets/new', to: 'secrets#new'
+post '/secrets', to: 'secrets#create'

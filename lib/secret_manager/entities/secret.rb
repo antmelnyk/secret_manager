@@ -1,5 +1,5 @@
 class Secret < Hanami::Entity
-    def secret
-        Encryptor.decrypt(super)
-    end
+  def decrypted_secret
+    Encryptor.decrypt(secret)
+  end
 end

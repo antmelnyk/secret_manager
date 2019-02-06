@@ -1,7 +1,7 @@
 module Web
   module Views
-    module Home
-      class Index
+    module Secrets
+      class Create
         include Web::View
       end
     end
