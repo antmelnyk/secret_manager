@@ -16,4 +16,11 @@ RSpec.describe 'List secrets' do
       expect(page).to have_css('.secret-item', count: 2)
     end
   end
+
+  it 'has Add button for new secret' do
+    visit '/secrets'
+
+    expect(page).to have_link(nil, href: '/secrets/new')
+  end
+
 end
