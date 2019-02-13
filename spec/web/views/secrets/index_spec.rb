@@ -26,7 +26,11 @@ RSpec.describe Web::Views::Secrets::Index, type: :view do
 		end
 	
 		it 'hides the placeholder message' do
-		  	expect(rendered).to_not include('<p class="placeholder">No secrets stored yet.</p>')
-		end
+		  expect(rendered).to_not include('<p class="placeholder">No secrets stored yet.</p>')
+    end
+    
+    it 'displays Delete button for secret' do
+      expect(rendered).to include('<p class="placeholder">No secrets stored yet.</p>')
+    end
 	end
 end

@@ -16,7 +16,6 @@ RSpec.describe 'Add a secret' do
     end
 
     expect(page).to have_current_path('/secrets')
-    expect(page).to have_content('New Secret')
     expect(SecretRepository.new.last.secret).to eq(Encryptor.encrypt('secret'))
   end
 
