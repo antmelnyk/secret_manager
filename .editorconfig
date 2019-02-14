@@ -1,6 +1,0 @@
-[*]
-indent_style = space
-indent_size = 4
-
-[*.{rb,erb}]
-indent_size = 2
