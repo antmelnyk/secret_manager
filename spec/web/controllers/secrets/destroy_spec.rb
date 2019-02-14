@@ -8,7 +8,7 @@ RSpec.describe Web::Controllers::Secrets::Destroy do
 
   it 'destroys secret by id' do
     secret = repository.create(login: 'Admin', secret: Encryptor.encrypt('secret'))
-    action.call({ secret: { id: secret.id }})
+    action.call({ id: secret.id })
 
     expect(repository.find(secret.id)).to be_nil
   end
