@@ -1,15 +1,13 @@
 module Web
   module Controllers
-    module Home
-      class Index
+    module Sessions
+      class Destroy
         include Web::Action
 
         def call(params)
+          session[:user_id] = nil
+          redirect_to routes.new_session_path
         end
-
-        private
-
-        def authenticate!; end
       end
     end
   end

@@ -1,0 +1,26 @@
+
+<%=
+  form_for form do
+
+    div class: 'field' do
+      label :login, class: 'label'
+      div class: 'control' do
+        text_field :login, class: 'input'
+      end
+    end
+
+    div class: 'field' do
+      label :password, class: 'label'
+      div class: 'control' do
+        text_field :password_plain, class: 'input'
+      end
+    end
+
+    div class: 'field' do
+      div class: 'control' do
+        submit 'Sign in', class: 'button is-info'
+      end
+    end
+
+  end
+%>

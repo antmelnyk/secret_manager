@@ -1,7 +1,7 @@
-<div class="section">
-  <div class="container">
-    <h1 class="title is-1">Secret Manager</h1>
-    <%= link_to 'Secrets', routes.secrets_path, class: 'button is-link' %>
+<% if current_user.nil? %> 
+  <div class="container content home">
+    <p>v. 1.0</p>
+    <%= link_to 'Sign in', routes.new_session_path, class: 'button is-info is-large' %>
   </div>
-</div>
+<% end %>
 

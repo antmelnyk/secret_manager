@@ -1,7 +1,7 @@
 module Web
   module Controllers
-    module Home
-      class Index
+    module Sessions
+      class New
         include Web::Action
 
         def call(params)
@@ -10,6 +10,7 @@ module Web
         private
 
         def authenticate!; end
+        
       end
     end
   end

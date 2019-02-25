@@ -7,6 +7,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bcrypt (3.1.12)
     better_errors (2.5.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -193,6 +194,7 @@ PLATFORMS
 
 DEPENDENCIES
   babel-transpiler
+  bcrypt
   capybara
   dotenv (~> 2.4)
   hanami (~> 1.3)
