@@ -10,7 +10,9 @@ module Web
     private
 
     def authenticate!
-      redirect_to routes.new_session_path unless authenticated?
+      unless Hanami.env?(:test) then
+        redirect_to routes.new_session_path unless authenticated? 
+      end
     end
 
     def authenticated?

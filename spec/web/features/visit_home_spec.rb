@@ -3,6 +3,6 @@ require 'features_helper'
 RSpec.describe 'Visit home' do
   it 'is successful' do
     visit '/'
-    expect(page).to have_content('Secret Manager')
+    expect(page).to have_content('1.0')
   end
 end

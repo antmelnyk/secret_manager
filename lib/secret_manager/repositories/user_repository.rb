@@ -2,7 +2,7 @@ class UserRepository < Hanami::Repository
   def find_by_login(login)
     users
       .where(login: login)
-      .as(User)
+      .map_to(User)
       .one
   end
 end
