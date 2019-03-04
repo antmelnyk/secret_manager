@@ -4,20 +4,24 @@ module Web
       class Create
         include Web::Action
 
+        expose :categories
+        
         params do
           required(:secret).schema do
             optional(:title)
             required(:login).filled(:str?)
             required(:secret).filled(:str?)
+            required(:category).filled(:int?)
           end
         end
 
         def call(params)
           if params.valid?
-            SecretRepository.new.create(prepared_params[:secret])
+            SecretRepository.new.create(prepared_params)
 
             redirect_to routes.secrets_path
           else
+            @categories = CategoryRepository.new.all_for_select_hash
             self.status = 422
           end
         end
@@ -25,8 +29,10 @@ module Web
         private
         
         def prepared_params
-          params[:secret][:secret] = Encryptor.encrypt(params[:secret][:secret])
-          params
+          login = params[:secret][:login]
+          secret = Encryptor.encrypt(params[:secret][:secret])
+          category_id = CategoryRepository.new.find(params[:secret][:category]).id
+          { login: login, secret: secret, category_id: category_id }
         end
       end
     end

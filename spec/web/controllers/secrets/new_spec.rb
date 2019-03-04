@@ -3,7 +3,7 @@ RSpec.describe Web::Controllers::Secrets::New, type: :action do
   let(:params) { Hash[] }
 
   it 'is successful' do
-  response = action.call(params)
-  expect(response[0]).to eq 200
+    response = action.call(params)
+    expect(response[0]).to eq 200
   end
 end

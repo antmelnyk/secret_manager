@@ -1,6 +1,6 @@
 RSpec.describe Web::Views::Secrets::New do
   let(:params)    { OpenStruct.new(valid?: false, error_messages: ['Login must be filled', 'Secret must be filled']) }
-  let(:exposures) { Hash[params: params] }
+  let(:exposures) { Hash[params: params, categories: CategoryRepository.new.all_for_select_hash] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/secrets/new.html.erb') }
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }

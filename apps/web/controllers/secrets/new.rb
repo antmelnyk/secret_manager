@@ -4,7 +4,10 @@ module Web
       class New
         include Web::Action
 
+        expose :categories
+
         def call(params)
+          @categories = CategoryRepository.new.all_for_select_hash
         end
       end
     end
