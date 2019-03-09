@@ -8,7 +8,7 @@ module Web
         
         params do
           required(:secret).schema do
-            optional(:title)
+            optional(:title).filled(:str?)
             required(:login).filled(:str?)
             required(:secret).filled(:str?)
             required(:category).filled(:int?)
