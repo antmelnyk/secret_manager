@@ -3,8 +3,18 @@ form {
 }
 
 .navigation {
-    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
     box-shadow: 0 0 10px 1px #d8d8d8;
+
+    .left {
+        margin-right: auto;
+    }
+
+    #session-form {
+        margin: 0;
+    }
 }
 
 .home {

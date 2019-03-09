@@ -1,5 +1,5 @@
 RSpec.describe Web::Views::Secrets::Index, type: :view do
-  let(:exposures) { Hash[secrets: []] }
+  let(:exposures) { Hash[secrets: [], categories: []] }
   let(:template)  { Hanami::View::Template.new('apps/web/templates/secrets/index.html.erb') }
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render } 

@@ -29,10 +29,11 @@ module Web
         private
         
         def prepared_params
+          title = params[:secret][:title]
           login = params[:secret][:login]
           secret = Encryptor.encrypt(params[:secret][:secret])
-          category_id = CategoryRepository.new.find(params[:secret][:category]).id
-          { login: login, secret: secret, category_id: category_id }
+          category_id = params[:secret][:category]
+          { title: title, login: login, secret: secret, category_id: category_id }
         end
       end
     end
