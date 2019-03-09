@@ -2,4 +2,4 @@
 
 Simple secret manager for day to day use.
 
-Made with Hanami 🌸
+Made with [Hanami](https://hanamirb.org/) 🌸
